@@ -8,7 +8,7 @@ function Navbar() {
 
       <Link href="/tours">Tours</Link>
 
-      <Link href="/action">Action</Link>
+      <Link href="/actions">Action</Link>
     </nav>
   );
 }
