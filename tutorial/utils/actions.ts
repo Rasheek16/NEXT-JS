@@ -37,3 +37,18 @@ const saveUser = async (user: User) => {
 
   await writeFile("users.json", JSON.stringify(users));
 };
+
+export const deleteUser = async (formdata: FormData) => {
+  const id = formdata.get("id") as string;
+  const users = await fetchUsers();
+  const updatedUsers = users.filter((user) => user.id != id);
+  await writeFile("users.json", JSON.stringify(updatedUsers));
+  revalidatePath("/actions");
+};
+export const removeUser = async (id: string, formdata: FormData) => {
+  const name = formdata.get("name");
+  const users = await fetchUsers();
+  const updatedUsers = users.filter((user) => user.id != id);
+  await writeFile("users.json", JSON.stringify(updatedUsers));
+  revalidatePath("/actions");
+};

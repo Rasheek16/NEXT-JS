@@ -1,4 +1,5 @@
 import { fetchUsers } from "@/utils/actions";
+import DeleteButton from "./DeleteButton";
 
 async function UsersList() {
   const users = await fetchUsers();
@@ -12,6 +13,7 @@ async function UsersList() {
                 <h4 key={user.id} className="capitalize text-lg">
                   {user.firstName} {user.lastName}
                 </h4>
+                <DeleteButton id={user.id} />
               </>
             );
           })}
